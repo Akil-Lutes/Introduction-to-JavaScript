@@ -17,7 +17,10 @@ Do the following:
 
    HINT: no function required
 */
-
+let votingAge = 18;
+if (votingAge >= 18 ) {
+  console.log(true);
+}
 
 
 /*
@@ -31,7 +34,13 @@ Do the following:
    HINT: no function required
 */
 
+let num1 = 10;
+let num2 = 15;
 
+if (num1 < num2) {
+  num1 = 5;
+  console.log(num1);
+}
 
 
 
@@ -46,6 +55,8 @@ Do the following:
    HINT: look up the Number method
 */
 
+let numStr = parseInt("1999");
+console.log(numStr);
 
 
 
@@ -58,11 +69,12 @@ Do the following:
    3. Multiply a and b and return the answer
 */
 
-function multiply(/*add your code here*/){
-    /*add your code here*/
+function multiply(a, b){
+  console.log(a *b)
+  return a * b;
   }
 
-
+multiply(3, 4);
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -74,10 +86,14 @@ Do the following:
    3. Return the newly calculated age
 */
 
-function dogYears(/*add your code here*/){
-    /*add your code here*/
+const doggieYears = 7;
+let humanYears;
+
+function dogYears(humanYears){
+    return humanYears * doggieYears;
 }
 
+console.log(dogYears(2));
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -135,7 +151,62 @@ Use the game function below to do the following:
 */
 
 function game(user, computer){
-    /*add your code here*/
+  /* I am getting the computer choice. I use or statements for all three choices. I will eventually put this function inside of the playGame function at the end. */
+
+const getUserChoice = userInput => {
+  userInput = userInput.toLowerCase();
+  if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors') {
+    return userInput;
+  } else {
+    console.log('Error, not a valid answer');
+  }
+};
+
+/* I am using the Math.random function to randomly generate a floating point number between 0 & 1 for the getComputerChoice function. Since there three choices of rock, paper, scissors, I multiply the random number by 3. And I use the Math.floor function to round down for my 3 choices. I will eventually put this function inside of the playGame function at the end */
+
+function getComputerChoice() {
+  let randomNumber = Math.floor(Math.random() * 3)
+  if (randomNumber === 0) {
+    return 'rock';
+  } else if (randomNumber === 1) {
+    return 'paper';
+  } else if (randomNumber === 2) {
+    return 'scissors';
+  } 
+}
+
+/* I am creating a determineWinner function with parameters of userChoice and computerChoice for calling the winner. I am console logging this function inside of the playGame function at the end. */
+
+function determineWinner(userChoice, computerChoice) {
+  if (userChoice === computerChoice) {
+    return 'The game is a tie!';
+  } if (userChoice === 'rock') {
+      if (computerChoice === 'paper') {
+        return 'The computer won!';
+      } else {
+        return 'You won!';
+      }
+  }
+
+  if (userChoice === 'paper') {
+    if (computerChoice === 'scissors') {
+      return 'The computer won!';
+    } else {
+      return 'You won!';
+    }
+  }
+
+  if (userChoice === 'scissors') {
+    if (computerChoice === 'paper') {
+      return 'You won!';
+    } else {
+      return 'The computer won!'
+    }
+  }
+}
+
+// This function ties everything together. The user choice, computer choice, and the determineWinner function.// 
+  /*add your code here*/
 }
   
   
