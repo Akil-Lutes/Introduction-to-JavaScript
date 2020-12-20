@@ -123,9 +123,28 @@ Use the hungryDog function and feeding requirements below to do the following:
   NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
 */  
 
-function hungryDog(/*add your code here*/){
-    /*add your code here*/
-  }
+function hungryDog(dogAge, weight){
+  let doggieAge = dogAge / 12;
+    if (doggieAge >= .16 && doggieAge < .33 && weight >= 1) {
+      return (weight * .10);
+    } else if (doggieAge >= .33 && doggieAge < .58 && weight >= 1) {
+      return weight * .05;
+    } else if (doggieAge >= .58 && doggieAge <= .99 && weight >= 1) {
+      return weight * .04;
+    } else if (doggieAge >= 1 && weight <= 5) {
+      return weight * .05;
+    } else if (doggieAge >= 1 && weight >= 6 && weight <=10) {
+      return weight * .04;
+    } else if (doggieAge >= 1 && weight > 10 && weight <= 15) {
+      return weight * .03;
+    } else if (doggieAge >= 1 && weight > 15) {
+      return weight * .02;
+    } else {
+      console.log('Please enter dog age in months and weight in whole numbers for pounds');
+    }      
+}
+
+
 
 
 
@@ -150,19 +169,21 @@ Use the game function below to do the following:
   HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
 
-function game(user, computer){
-  /* I am getting the computer choice. I use or statements for all three choices. I will eventually put this function inside of the playGame function at the end. */
+
+/* I am using the Math.random function to randomly generate a floating point number between 0 & 1 for the getComputerChoice function. Since there three choices of rock, paper, scissors, I multiply the random number by 3. And I use the Math.floor function to round down for my 3 choices. */
+
+
+/* userChoice has to be defined, so that is why I made a function. To define userChoice so it can be compared in the if statements within the game function that has two parameters */
 
 const getUserChoice = userInput => {
   userInput = userInput.toLowerCase();
   if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors') {
     return userInput;
-  } else {
+  }else {
     console.log('Error, not a valid answer');
   }
-};
+}
 
-/* I am using the Math.random function to randomly generate a floating point number between 0 & 1 for the getComputerChoice function. Since there three choices of rock, paper, scissors, I multiply the random number by 3. And I use the Math.floor function to round down for my 3 choices. I will eventually put this function inside of the playGame function at the end */
 
 function getComputerChoice() {
   let randomNumber = Math.floor(Math.random() * 3)
@@ -175,40 +196,44 @@ function getComputerChoice() {
   } 
 }
 
-/* I am creating a determineWinner function with parameters of userChoice and computerChoice for calling the winner. I am console logging this function inside of the playGame function at the end. */
 
-function determineWinner(userChoice, computerChoice) {
+
+function game(userChoice, computerChoice){
   if (userChoice === computerChoice) {
-    return 'The game is a tie!';
+    return "it's a tie";
   } if (userChoice === 'rock') {
       if (computerChoice === 'paper') {
-        return 'The computer won!';
+        return 'you lose!';
       } else {
-        return 'You won!';
+        return 'you win!';
       }
   }
 
   if (userChoice === 'paper') {
     if (computerChoice === 'scissors') {
-      return 'The computer won!';
+      return 'you lose!';
     } else {
-      return 'You won!';
+      return 'you win!';
     }
   }
 
   if (userChoice === 'scissors') {
-    if (computerChoice === 'paper') {
-      return 'You won!';
+    if (computerChoice === 'rock') {
+      return 'you lose!';
     } else {
-      return 'The computer won!'
+      return 'you win!'
     }
   }
 }
 
-// This function ties everything together. The user choice, computer choice, and the determineWinner function.// 
-  /*add your code here*/
+function playGame() {
+  const userChoice = getUserChoice('rock')
+  const computerChoice = getComputerChoice()
+  console.log(game('rock', computerChoice));
 }
-  
+
+playGame();
+
   
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
