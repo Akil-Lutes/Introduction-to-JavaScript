@@ -184,6 +184,8 @@ const getUserChoice = userInput => {
   }
 }
 
+/* I am creating a function for computerChoice called getComputerChoice */
+
 
 function getComputerChoice() {
   let randomNumber = Math.floor(Math.random() * 3)
@@ -196,6 +198,8 @@ function getComputerChoice() {
   } 
 }
 
+
+/* I am creating this GAME function so I can tie the userChoice function and computerChoice function together. So I am going to create a function for the the parameters, userChoice and computerChoice */
 
 
 function game(userChoice, computerChoice){
@@ -226,6 +230,8 @@ function game(userChoice, computerChoice){
   }
 }
 
+/* I created functions for parameters that I wanted to use for userChoice and computerChoice. In the future, I can create functions for parameters that I would like to use. Helper functions */
+
 function playGame() {
   const userChoice = getUserChoice('rock')
   const computerChoice = getComputerChoice()
@@ -247,9 +253,13 @@ Using the miles function below do the following:
   3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
-    /*add your code here*/
-  }
+/* The formula for kilometers to miles is, kilometers * .6214. */
+
+function miles(kilometers){
+  return kilometers * .6214;
+}
+
+console.log(miles(5));
 
 
 
@@ -261,10 +271,11 @@ Using the feet function below do the following:
   3. Return number of feet
 */
 
-function feet(/*add your code here*/){
-    /*add your code here*/
+function feet(centimeters){
+    return centimeters * 30.48;
   }
  
+  console.log(feet(5));
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -277,9 +288,32 @@ Using the annoyingSong function below do the following:
       "{number} bottles of soda on the wall, {number} bottles of soda, take one down pass it around {number left over} bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/){
-        /*add your code here*/
+/* I used the numberOfBottles parameter and assigned it to the counter variable so it can be initialized. I also set counter = counter - 1 so I could subtract by one every time the loop ran through. */
+
+function annoyingSong(numberOfBottles){
+  let bottles;
+  for (counter = numberOfBottles; counter >= 1; counter = counter - 1) 
+  {
+      if (counter == 1) {
+          bottles = 'bottle';
+      } else {
+          bottles = 'bottles';
+      }
+      console.log(`${counter} ${bottles} of soda on the wall.`);
+      if (counter < 99) {
+          console.log("");
+          console.log(`${counter} ${bottles} of soda on the wall.`);
+      }
+      console.log(`${counter} ${bottles} of soda on the wall.`);
+      console.log("Take one down.");
+      console.log("Pass it around.");
+      if (counter == 1) {
+          console.log("No bottles of soda on the wall.");
+      }
+  }   
   }
+
+annoyingSong(20);
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -296,10 +330,29 @@ Using the grade function below do the following:
    60-69 should return 'you got a D'
    below should return 'you got an F'
 */
+
+/* I used switch and true to figure out the grade(num) number for this grades function */
   
-function grade(/*Your Code here */){
-  /*Your Code here */
+function grade(num){
+  switch (true) {
+    case num >= 90:
+        console.log("A");
+        break;
+    case num >= 80:
+        console.log("B");
+        break;
+    case num >= 70:
+        console.log("C");
+        break;
+    case num >= 60:
+        console.log("D");
+        break;
+    default:
+        console.log("F");
+}
   }
+  
+grade(100);
   
   
 
